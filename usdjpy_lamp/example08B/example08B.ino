@@ -35,6 +35,7 @@ void loop() {
     inByte = Serial.read();
     if(inByte==1 || inByte==2){
      analogWrite(R_LED, 0);  // turn the leds on
+     analogWrite(G_LED, 0);  // turn the leds on
       analogWrite(B_LED, 0);  // sent by the computer  
       delay(500);     
     }
@@ -44,13 +45,16 @@ void loop() {
 
 
 if(inByte == 0){
-    analogWrite(R_LED, 255);  // turn the leds on
-    analogWrite(B_LED, 255);  // sent by the computer   
+     analogWrite(R_LED, 0);  // turn the leds on
+     analogWrite(G_LED, 255);  // turn the leds on
+     analogWrite(B_LED, 0);  // sent by the computer   
 }else if(inByte==1){
     analogWrite(R_LED, 255);  // turn the leds on
+    analogWrite(G_LED, 0);  // turn the leds on   
     analogWrite(B_LED, 0);  // sent by the computer
 }else if(inByte==2){
     analogWrite(R_LED, 0);  // turn the leds on
+    analogWrite(G_LED, 0);  // turn the leds on   
     analogWrite(B_LED, 255);  // sent by the computer
  
 }

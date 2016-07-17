@@ -71,6 +71,8 @@ void draw() {
     
     if(old_price < price){
       port.write(1); // send data to Arduino
+    }else if(old_price==price){
+      port.write(0);
     }else{
       port.write(2);
     }
@@ -86,7 +88,7 @@ void fetchData() {
     URL url = new URL(feed);  // An object to represent the URL
     // prepare a connection   
     URLConnection conn = url.openConnection(); 
-    conn.setRequestProperty("Authorization","Bearer <YOUR TOKEN>");
+    conn.setRequestProperty("Authorization","Bearer <YOUR OANDA DEMO ACCOUNT TOKEN>");
     conn.connect(); // now connect to the Website
 
     // this is a bit of virtual plumbing as we connect
